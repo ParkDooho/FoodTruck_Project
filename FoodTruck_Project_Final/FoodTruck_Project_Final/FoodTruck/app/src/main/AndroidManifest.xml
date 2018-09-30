@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="shinhan.ac.kr.foodtruck1">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+        android:icon="@drawable/bus"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        -
+        <activity
+            android:name=".A_Select.StartLoading"
+            android:screenOrientation="portrait">
+            -
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".A_Select.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Z_Adapter.listview_item" />
+        <activity android:name=".B_Login.LoginActivity" />
+        <activity android:name=".B_Login.RegisterActivity" />
+        <activity android:name=".B_Login.Register_shop" />
+        <activity android:name=".Z_Data.Resultlogin" />
+        <activity android:name=".Z_Data.ResultRegister" />
+        <activity android:name=".Z_Data.ResultRegister_shop" />
+        <activity android:name=".C_List.SearchActivity" />
+        <activity android:name=".C_List.listActivity" />
+        <activity android:name=".E_Image.UserImage" />
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="a947fe1ba8b6583337a20fe6210a7ad6" />
+
+        <activity android:name=".Z_Data.ResultImage" />
+        <activity android:name=".Z_Data.ResultRegister_ID_Check" />
+        <activity android:name=".Z_Data.ResultRegister_ID_Check_shop" />
+        <activity android:name=".D_Gps.ResultGPS_Set" />
+        <activity android:name=".Z_Data.ResultGPS_Del" />
+        <activity android:name=".Z_Adapter.listview_User_Image" />
+        <activity android:name=".F_Fragment.Information_update" />
+        <activity android:name=".F_Fragment.Information_update_Result" />
+        <activity android:name=".F_Fragment.Menu_update" />
+        <activity android:name=".F_Fragment.Menu_update_Result" />
+        <activity android:name=".F_Fragment.Menu_insert" />
+        <activity android:name=".F_Fragment.Menu_insert_Result"></activity>
+    </application>
+
+</manifest>

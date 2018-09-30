@@ -1,0 +1,126 @@
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="org.json.simple.JSONObject"%>
+<%@page import="java.sql.*"%>
+<%@page import="Project_Sever.*"%>
+<%@page import="org.json.simple.*"%>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.net.URLDecoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
+
+<%
+	Connection con = DBConnection.openConnection();
+	UserDAO U_DB = new UserDAO(con);
+	JSONObject jsonObj = new JSONObject();
+	JSONArray jsonArr = new JSONArray();
+	String action = request.getParameter("action");
+	String userID, userPW, userName, userTel, userAddr, userNum, shopID, shopPW, shopName, shopTel, shopAddr,
+			shopOwner, shopMenu, shopEvent;
+	int shopPrice;
+	switch (action) {
+	case "userLog":
+		userID = request.getParameter("userID");
+		userPW = request.getParameter("userPW");
+		jsonObj = U_DB.userLog(userID, userPW);
+		out.println(jsonObj.toJSONString());
+		break;
+	case "userInsert":
+		UserDTO Udata = new UserDTO(
+				userID = request.getParameter("userID"),
+				userPW = request.getParameter("userPW"),
+				userName = request.getParameter("userName"),
+				userTel = request.getParameter("userTel"),
+				userAddr = request.getParameter("userAddr"),
+				userNum = request.getParameter("userNum"));
+		U_DB.userInsert(Udata);
+		break;
+	case "shopLog":
+		shopID = request.getParameter("shopID");
+		shopPW = request.getParameter("shopPW");
+		jsonObj = U_DB.shopLog(shopID, shopPW);
+		out.println(jsonObj.toJSONString());
+		break;
+	case "shopInsert":
+		ShopDTO Sdata = new ShopDTO(
+				shopID = request.getParameter("shopID"),
+				shopPW = request.getParameter("shopPW"), 
+				shopName = request.getParameter("shopName"),
+				shopTel = request.getParameter("shopTel"),
+				shopAddr = request.getParameter("shopAddr"),
+				shopOwner = request.getParameter("shopOwner"));
+		U_DB.shopInsert(Sdata);
+		break;
+	case "selectData_text_Menu":
+		   shopMenu = request.getParameter("shopMenu");
+		   jsonObj = U_DB.selectData_text_Menu(shopMenu);
+		   out.println(jsonObj.toJSONString());
+		   break;
+	case "insertData_text":
+		Data_TextDTO data = new Data_TextDTO(
+				shopID = request.getParameter("shopID"),
+				shopName = request.getParameter("shopName"), 
+				shopMenu = request.getParameter("shopMenu"),
+				shopPrice = Integer.parseInt("shopPrice"),
+				shopEvent = request.getParameter("shopEvent"));
+		U_DB.insertData_text(data);
+		break;
+	default:
+		break;
+	}
+	DBConnection.closeConnection(con);
+
+	/*
+	   case "selectItem":
+	       jsonObj = U_DB.selectItem();
+	       out.println(jsonObj.toJSONString());
+	       break;
+	   
+	   case "selectItemGroup":
+		   itemGroup = request.getParameter("itemGroup");
+		   jsonObj = U_DB.selectItemGroup(itemGroup);
+		   out.println(jsonObj.toJSONString());
+		   break;
+	   case "selectShop":
+		   jsonObj = U_DB.selectShop();
+	       out.println(jsonObj.toJSONString());
+		   break;
+	   case "selectShopGP":
+		   shopGP = request.getParameter("shopGP");
+		   jsonObj = U_DB.selectShopGP(shopGP);
+	       out.println(jsonObj.toJSONString());
+		   break;
+	   
+	   /////////////////////////////////////////////////////////////////
+	   
+	   
+	   case "insertItem":
+		   itemName = request.getParameter("itemName");
+		   itemGroup = request.getParameter("itemGroup");
+		   itemAmount = Integer.parseInt("itemAmount");
+		   itemEvent = request.getParameter("itemEvent");
+		   itemPrice = Integer.parseInt("itemPrice");	   
+		   shopID = request.getParameter("shopID");
+		   ItemDTO Idata = new ItemDTO(itemName, itemGroup, itemAmount, itemEvent, itemPrice, shopID);
+		   U_DB.insertItem(Idata);
+		      break;
+	   case "updateItem":
+		   itemGroup = request.getParameter("itemGroup");
+		   itemAmount = Integer.parseInt("itemAmount");
+		   itemEvent = request.getParameter("itemEvent");
+		   itemPrice = Integer.parseInt("itemPrice");
+		   itemName = request.getParameter("itemName");
+		   shopID = request.getParameter("shopID");
+		   U_DB.updateItem(itemGroup, itemAmount, itemEvent, itemPrice, itemName, shopID);
+		      break;
+	   case "deleteItem":
+		   itemName = request.getParameter("itemName");
+		   U_DB.deleteItem(itemName);
+		      break;*/
+%>
+
+
+
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/test"
+    tools:context="A_Select.MainActivity">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="32dp"
+        app:srcCompat="@color/bar" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="202dp"
+        android:layout_height="119dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/bus" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="5dp"
+        android:id="@+id/liner2">
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1.5"
+            android:background="@drawable/spinner_spinner1"
+            android:layout_marginLeft="15dp" />
+
+        <EditText
+            android:id="@+id/edit1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginLeft="15dp"
+            android:singleLine = "true"
+            android:lines = "1"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:hint="검색" />
+
+        <Button
+            android:id="@+id/search1"
+            android:layout_width="0dp"
+            android:layout_height="39dp"
+            android:layout_weight="0.3"
+            android:layout_marginRight="10dp"
+            android:onClick="onClickSearch"
+            android:background="@drawable/searchs" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@color/bar" />
+
+    <RelativeLayout
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@+id/liner2"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignRight="@+id/map_view"
+        android:layout_alignTop="@+id/map_view"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/gps"
+        android:onClick="onClick" />
+
+</RelativeLayout>

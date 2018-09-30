@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">푸드트럭 어디가?!</string>
+    <string name="title_activity_list">listActivity</string>
+    <string name="register">* 아직 푸드트럭 회원이 아니세요?</string>
+</resources>
